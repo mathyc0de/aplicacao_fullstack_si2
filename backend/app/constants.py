@@ -1,0 +1,50 @@
+UFS_VALIDAS = frozenset(
+    {
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO",
+    }
+)
+
+SITUACOES_VALIDAS = frozenset({"ATIVO", "APOSENTADO"})
+
+SQL_INJECTION_MARKERS = (
+    ";",
+    "--",
+    "/*",
+    "*/",
+    " xp_",
+    " union ",
+    " select ",
+    " insert ",
+    " update ",
+    " delete ",
+    " drop ",
+    " alter ",
+    " exec ",
+    " execute ",
+)
