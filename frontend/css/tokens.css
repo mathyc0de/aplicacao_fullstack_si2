@@ -1,0 +1,15 @@
+:root {
+  --bg: #07131a;
+  --bg-soft: #0d1f29;
+  --panel: rgba(14, 36, 48, 0.86);
+  --line: rgba(168, 214, 196, 0.16);
+  --text: #e7f3ee;
+  --muted: #9bb3ac;
+  --accent: #d7b36a;
+  --accent-2: #3ecf8e;
+  --danger: #ff8b7a;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  --radius: 22px;
+  --sans: "IBM Plex Sans", sans-serif;
+  --serif: "Fraunces", Georgia, serif;
+}
