@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servidores do Executivo Federal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+    <link rel="stylesheet" href="css/results.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/chip.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">SF</span>
+        <div>
+          <p class="eyebrow">Dados abertos · Poder Executivo</p>
+          <h1>Consulta a servidores ativos e aposentados</h1>
+        </div>
+      </div>
+      <p class="topbar-note">
+        Busca indexada e por similaridade sobre bases do
+        <a href="https://dados.gov.br" target="_blank" rel="noreferrer">dados.gov.br</a>
+      </p>
+    </header>
+
+    <main class="shell">
+      <section class="panel search-panel">
+        <header class="panel-head">
+          <h2>Filtros de busca</h2>
+          <p>Combine nome, cargo, UF e órgão. A similaridade aceita curingas %.</p>
+        </header>
+        <form id="search-form" class="search-form" novalidate>
+          <div class="field">
+            <label for="nome">Nome exato</label>
+            <input id="nome" name="nome" type="text" placeholder="Maria da Conceição Silva" />
+          </div>
+          <div class="field">
+            <label for="similar">Similaridade</label>
+            <input id="similar" name="similar" type="text" placeholder="%SILVA%SANTOS%" />
+          </div>
+          <div class="field">
+            <label for="cargo">Cargo / carreira</label>
+            <input id="cargo" name="cargo" type="text" list="cargos-list" placeholder="Professor" />
+            <datalist id="cargos-list"></datalist>
+          </div>
+          <div class="field">
+            <label for="orgao">Instituição / órgão</label>
+            <input id="orgao" name="orgao" type="text" list="orgaos-list" placeholder="INSS" />
+            <datalist id="orgaos-list"></datalist>
+          </div>
+          <div class="field">
+            <label for="uf">Estado (UF)</label>
+            <select id="uf" name="uf">
+              <option value="">Todas</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="situacao">Situação</label>
+            <select id="situacao" name="situacao">
+              <option value="">Todas</option>
+              <option value="ATIVO">Ativo</option>
+              <option value="APOSENTADO">Aposentado</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="limit">Limite por página</label>
+            <input id="limit" name="limit" type="number" min="1" max="100" value="20" />
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn primary">Consultar</button>
+            <button type="reset" class="btn ghost">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel results-panel">
+        <header class="panel-head">
+          <div>
+            <h2>Resultados</h2>
+            <p id="results-meta">Informe um filtro para iniciar a consulta.</p>
+          </div>
+          <div id="status-chip" class="chip idle">aguardando</div>
+        </header>
+        <div id="alert" class="alert" hidden></div>
+        <div id="single-card" class="single-card" hidden></div>
+        <div class="table-wrap">
+          <table id="results-table" hidden>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Órgão</th>
+                <th>UF</th>
+                <th>Situação</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <nav id="pagination" class="pagination" hidden>
+          <button type="button" id="prev-page" class="btn ghost">Anterior</button>
+          <span id="page-label"></span>
+          <button type="button" id="next-page" class="btn ghost">Próxima</button>
+        </nav>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Consulta pública de pessoal do Executivo Federal · API Flask + Gunicorn · PostgreSQL</p>
+    </footer>
+
+    <script src="js/errors.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/formatters.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/validators.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/pagination.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
