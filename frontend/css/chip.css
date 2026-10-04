@@ -1,0 +1,7 @@
+.chip.ok {
+  background: rgba(62, 207, 142, 0.08);
+}
+
+.chip.err {
+  background: rgba(255, 139, 122, 0.08);
+}
