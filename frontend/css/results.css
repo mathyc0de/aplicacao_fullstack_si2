@@ -1,0 +1,84 @@
+.chip {
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--line);
+}
+
+.chip.idle {
+  color: var(--muted);
+}
+
+.chip.ok {
+  color: #b8f3d3;
+  border-color: rgba(62, 207, 142, 0.4);
+}
+
+.chip.err {
+  color: var(--danger);
+  border-color: rgba(255, 139, 122, 0.4);
+}
+
+.alert {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 139, 122, 0.12);
+  color: #ffd2cb;
+  margin-bottom: 16px;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.94rem;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.single-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(5, 16, 22, 0.55);
+}
+
+.single-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+}
+
+.single-card dl {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 8px 12px;
+  margin: 0;
+}
+
+.single-card dt {
+  color: var(--muted);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
