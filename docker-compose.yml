@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: db-server
+    environment:
+      POSTGRES_DB: servidores
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d servidores"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    environment:
+      DATABASE_URL: postgresql://app:app@db:5432/servidores
+      QUERY_TIMEOUT_MS: 5000
+      RATE_LIMIT: "60 per minute"
+      CONCURRENT_SEARCH_LIMIT: 8
+      GUNICORN_WORKERS: 3
+      GUNICORN_THREADS: 4
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+# Serviços obrigatórios: db-server, backend (Flask+Gunicorn) e frontend.
