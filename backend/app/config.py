@@ -15,4 +15,3 @@ class Config:
     RATE_LIMIT = os.getenv("RATE_LIMIT", "60 per minute")
     CONCURRENT_SEARCH_LIMIT = int(os.getenv("CONCURRENT_SEARCH_LIMIT", "8"))
     CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
-# Timeout alinhado ao requisito de busca com limite de tempo.

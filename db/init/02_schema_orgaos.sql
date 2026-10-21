@@ -10,4 +10,3 @@ CREATE TABLE orgaos (
 
 COMMENT ON TABLE orgaos IS 'Órgãos e instituições do Poder Executivo Federal.';
 COMMENT ON COLUMN orgaos.uf_sede IS 'UF da sede do órgão, usada quando o servidor não tem UF de exercício.';
--- UF_SEDE cobre consultas por estado quando o CSV não traz UF_EXERCICIO.

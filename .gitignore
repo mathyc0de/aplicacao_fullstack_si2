@@ -10,7 +10,8 @@ venv/
 .DS_Store
 .idea/
 .vscode/
-db/data/
+db/data/*
+!db/data/.gitkeep
 postgres-data/
 desktop/build/
 desktop/dist/

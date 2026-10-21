@@ -1,13 +1,13 @@
 # Consulta a servidores do Executivo Federal
 
 Aplicação full stack para consultar servidores ativos e aposentados do Poder
-Executivo Federal, com dados sintetizados a partir dos conjuntos abertos de
+Executivo Federal, com dados dos conjuntos abertos de
 [aposentados](https://dados.gov.br/dados/conjuntos-dados/gestao-de-pessoas-executivo-federal--aposentados)
 e [carreiras/cargos](https://dados.gov.br/dados/conjuntos-dados/gestao-de-pessoas-executivo-federal---carreiras--cargos).
 
 ## Subir o ambiente
 
-Na raiz desta pasta `projeto`:
+Na raiz do projeto:
 
 ```bash
 docker compose up --build
@@ -46,7 +46,10 @@ python3 app.py
 
 ## Importação das bases oficiais
 
-Os CSVs oficiais não são versionados. Veja `db/import/README.md`.
+Os arquivos oficiais não são versionados. Coloque `APOSENTADOS_*.csv` e
+`CARREIRA_*.txt` em `db/data/` antes do `docker compose up --build` e o banco é
+carregado automaticamente. Sem os arquivos, sobe com dados de exemplo. Detalhes
+em `db/import/README.md`.
 ## Exemplo de similaridade
 
 `GET /api/servidores?similar=%SILVA%&limit=20`

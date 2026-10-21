@@ -9,4 +9,3 @@ CREATE INDEX idx_servidores_filtros ON servidores (uf, cargo_id, orgao_id);
 CREATE INDEX idx_orgaos_sigla ON orgaos (upper(sigla));
 CREATE INDEX idx_orgaos_nome_trgm ON orgaos USING gin (normalize_nome(nome) gin_trgm_ops);
 CREATE INDEX idx_cargos_carreira ON cargos (normalize_nome(carreira));
--- Índices usam normalize_nome (IMMUTABLE); unaccent puro não pode ir em índice.

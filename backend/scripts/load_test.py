@@ -39,4 +39,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-# Exemplo: python load_test.py --workers 40 --requests 120

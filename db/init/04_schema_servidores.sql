@@ -19,4 +19,3 @@ CREATE TABLE servidores (
 
 COMMENT ON TABLE servidores IS 'Cadastro unificado de servidores ativos e aposentados.';
 COMMENT ON COLUMN servidores.nome_normalizado IS 'Nome em maiúsculas sem acento, para busca exata e por similaridade.';
--- Situações aceitas pela API: ATIVO e APOSENTADO.

@@ -12,4 +12,3 @@ errorlog = "-"
 loglevel = os.getenv("GUNICORN_LOG_LEVEL", "info")
 max_requests = 1000
 max_requests_jitter = 100
-# gthread atende várias requisições por worker sem bloquear o event loop.

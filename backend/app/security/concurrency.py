@@ -27,4 +27,3 @@ def acquire_search_slot():
         yield
     finally:
         semaphore.release()
-# O semáforo evita colapso quando a plataforma recebe rajadas de busca.

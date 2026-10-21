@@ -20,7 +20,7 @@ def validate_nome_exato(value: str) -> str:
 
 
 def validate_similar(value: str) -> str:
-    pattern = compact_spaces(value.strip().strip('"').strip("'"))
+    pattern = compact_spaces(value.strip().strip("\"'“”‘’"))
     if not pattern:
         raise InvalidStringError("Padrão de similaridade não pode ser vazio.")
     if "%" not in pattern:
